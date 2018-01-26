@@ -12,8 +12,26 @@
 #define _FL 1
 #define _F1 2
 
-#define KC_ENYE M(0)
-#define KC_CEDL M(1)
+//#define KC_ENYE M(0)
+//#define KC_CEDL M(1)
+enum custom_keycodes{
+  KC_CEDL = SAFE_RANGE,
+  KC_ENYE
+};
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (record->event.pressed) {
+        switch(keycode) {
+            case KC_CEDL:
+                SEND_STRING("ç");
+                return false; break;
+            case KC_ENYE:
+                SEND_STRING("ñ");
+                return false; break;
+        }
+    }
+    return true;
+};
 
 #define _______ KC_TRNS
 
@@ -118,16 +136,4 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt) {
       }
       break;
   }
-};
-
-const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
-    if (record->event.pressed) {
-        switch(id) {
-            case 0: // Ñ
-                return MACRO(D(LALT), T(KP_0), T(KP_2), T(KP_4), T(KP_1), U(LALT), END);
-            case 1: // Ç
-                return MACRO(D(LALT), T(KP_0), T(KP_2), T(KP_3), T(KP_1), U(LALT), END);
-        }
-    }
-    return MACRO_NONE;
 };
