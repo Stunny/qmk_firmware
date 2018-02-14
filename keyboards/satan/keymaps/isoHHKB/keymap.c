@@ -12,8 +12,7 @@
 #define _FL 1
 #define _F1 2
 
-//#define KC_ENYE M(0)
-//#define KC_CEDL M(1)
+//Custom keycodes for additional spanish characters
 enum custom_keycodes{
   KC_CEDL = SAFE_RANGE,
   KC_ENYE
@@ -47,27 +46,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     * |-----------------------------------------------------------|
     * |Shift   |  Z|  X|  C|  V|  B|  N|  M|  ,|  .|  /|Shift | Fn|
     * |-----------------------------------------------------------|
-    * |    |Alt|WinK  |      Space            |WinK  |Alt|        |
+    * |    |Alt|WinK  |      Space            |WinK  |Pn |        |
     * `-----------------------------------------------------------'
     *
     */
 
     [_BL] = KEYMAP_ISO_HHKB( \
-    F(0),    KC_1,   KC_2,   KC_3,   KC_4,   KC_5,   KC_6,   KC_7,   KC_8,   KC_9,   KC_0,   KC_MINS, KC_EQL, KC_BSPC, \
-    KC_TAB,  KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,   KC_Y,   KC_U,   KC_I,   KC_O,   KC_P,   KC_LBRC, KC_RBRC,_______, \
-    KC_LCTRL, KC_A,   KC_S,   KC_D,   KC_F,   KC_G,   KC_H,   KC_J,   KC_K,   KC_L, KC_SCLN,KC_QUOT,KC_BSLS,KC_ENT,  \
-    OSM(MOD_LSFT),_______, KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   KC_N,   KC_M,   KC_COMM,KC_DOT, KC_SLSH, OSM(MOD_RSFT), MO(_FL), \
-    _______, KC_LGUI, KC_LALT,             KC_SPC,                 KC_RALT, MO(_F1),_______, _______),
+    F(0),    KC_1,   KC_2,   KC_3,   KC_4,   KC_8,   KC_6,   KC_7,   KC_5,   KC_9,   KC_0,   KC_MINS, KC_EQL, KC_BSPC, \
+    KC_TAB,  KC_Q,   KC_W,   KC_E,   KC_R,   KC_I,   KC_Y,   KC_U,   KC_T,   KC_O,   KC_P,   KC_LBRC, KC_RBRC,_______, \
+    KC_LCTRL, KC_A,   KC_S,   KC_D,   KC_F,   KC_K,   KC_H,   KC_J,   KC_G,   KC_L, KC_SCLN,KC_QUOT,KC_BSLS,KC_ENT,  \
+    OSM(MOD_LSFT),_______, KC_Z,   KC_X,   KC_C,   KC_M,   KC_B,   KC_N,   KC_V,   KC_COMM,KC_DOT, KC_SLSH, OSM(MOD_RSFT), MO(_FL), \
+    _______, KC_LGUI, KC_LALT,          KC_SPC   ,     _______            ,KC_RALT,MO(_F1), _______),
 
     /* Keymap _FL: (Function Layer) Second Layer
      * ,-----------------------------------------------------------.
      * |    |F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|PSR|  RESET|
      * |-----------------------------------------------------------|
-     * |     |   |VUP|   |   |   |   |   |   |   |   |   |   |     |
+     * |HOME |   | UP|   |PUP|   |   |   |   |   |   |   |   |     |
      * |-----------------------------------------------------------|
-     * |       |PRV|VDN|NXT|   |RGB|FRW|BRT|VAI|VAD|HUI|HUD|   |   |
+     * |  END  |LFT|DWN|RGT|PDN|   |   |   |   |   |   |   |   |   |
      * |-----------------------------------------------------------|
-     * |        |   |   |  Ç|   |   |  Ñ|MUT|   |SAI|SAD|      |   |
+     * |        |   |   |  Ç|   |   |  Ñ|MUT|   |   |   |      |   |
      * |-----------------------------------------------------------|
      * |    |   |      |          PLY/PAU      |      |   |        |
      * `-----------------------------------------------------------'
@@ -75,18 +74,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_FL] = KEYMAP_ISO_HHKB(\
 
     _______, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_PSCR, RESET, \
-    _______,_______,KC_VOLU,_______,_______,_______,_______,_______,_______,_______,_______, _______,_______, _______, \
-    _______,KC_MPRV,KC_VOLD,KC_MNXT,_______,_______,RGB_TOG,RGB_MOD,RGB_M_B,RGB_VAI,RGB_VAD,RGB_HUI, RGB_HUD, _______, \
-    _______,_______,_______,_______,KC_CEDL,_______,_______,KC_ENYE,KC_MUTE,_______,RGB_SAI,RGB_SAD,_______, _______, \
+    KC_HOME,_______,KC_UP,_______,KC_PGUP,_______,_______,_______,_______,_______,_______, _______,_______, _______, \
+    KC_END,KC_LEFT,KC_DOWN,KC_RIGHT,KC_PGDN,_______,_______,_______,_______,_______,_______,_______, _______, _______, \
+    _______,_______,_______,_______,KC_CEDL,_______,_______,KC_ENYE,KC_MUTE,_______,_______,_______,_______, _______, \
     _______,_______,_______,                 KC_MPLY,                       _______,_______,_______, _______),
 
     /* Keymap _FL: (Function Layer) Second Layer
      * ,-----------------------------------------------------------.
-     * |    |  |   |   |   |   |   |   |   |   |   |   |   |       |
+     * |    |  |   |   |   |   |   |   |   |   |   |SAI|SAD|       |
      * |-----------------------------------------------------------|
-     * |     |   | UP|   |   |   |   |   |   |   |   |   |   |     |
+     * |     |   |VUP|   |   |   |RGB|MOD|BRT|VAI|VAD|HUI|HUD|     |
      * |-----------------------------------------------------------|
-     * |CapsLck|LFT|DWN|RGT|   |BTG|BON|BOF|BST|BRT|INC|DEC|   |   |
+     * |CapsLck|PRV|VDN|NXT|   |   |   |   |   |   |   |   |   |   |
      * |-----------------------------------------------------------|
      * |        |   |   |   |   |   |   |   |   |   |   |      |   |
      * |-----------------------------------------------------------|
@@ -96,9 +95,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_F1] = KEYMAP_ISO_HHKB(\
 
-    _______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______, \
-    _______,_______,KC_UP,_______,_______,_______,_______,_______,_______,_______,_______, _______,_______, _______, \
-    KC_CAPS,KC_LEFT,KC_DOWN,KC_RIGHT,_______,_______,BL_TOGG,BL_ON,BL_OFF,BL_STEP,BL_BRTG,BL_INC, BL_DEC, _______, \
+    _______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,RGB_SAI,RGB_SAD,_______, \
+    _______,_______,KC_VOLU,_______,_______,_______,RGB_TOG,RGB_MOD,RGB_M_B,RGB_VAI,RGB_VAD, RGB_HUI,RGB_HUD, _______, \
+    KC_CAPS,KC_MPRV,KC_VOLD,KC_MNXT,_______,_______,_______,_______,_______,_______,_______,_______, _______, _______, \
     _______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______, _______, \
     _______,_______,_______,                 _______,                       _______,_______,_______, _______)
 
