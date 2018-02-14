@@ -136,3 +136,15 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt) {
       break;
   }
 };
+
+const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
+    if (record->event.pressed) {
+        switch(id) {
+            case 0: // Ñ
+                return MACRO(D(LALT), T(KP_0), T(KP_2), T(KP_4), T(KP_1), U(LALT), END);
+            case 1: // Ç
+                return MACRO(D(LALT), T(KP_0), T(KP_2), T(KP_3), T(KP_1), U(LALT), END);
+        }
+    }
+    return MACRO_NONE;
+};
