@@ -56,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,  KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,   KC_Y,   KC_U,   KC_I,   KC_O,   KC_P,   KC_LBRC, KC_RBRC,_______, \
     KC_LCTRL, KC_A,   KC_S,   KC_D,   KC_F,   KC_G,   KC_H,   KC_J,   KC_K,   KC_L, KC_SCLN,KC_QUOT,KC_BSLS,KC_ENT,  \
     OSM(MOD_LSFT),_______, KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   KC_N,   KC_M,   KC_COMM,KC_DOT, KC_SLSH, OSM(MOD_RSFT), MO(_FL), \
-    _______, KC_LGUI, KC_LALT,          KC_SPC   ,     KC_SPC            ,KC_RALT,MO(_F1), _______),
+    _______, KC_LGUI, KC_LALT,          KC_SPC   ,     _______            ,KC_RALT,MO(_F1), _______),
 
     /* Keymap _FL: (Function Layer) Second Layer
      * ,-----------------------------------------------------------.
@@ -77,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_HOME,_______,KC_UP,_______,KC_PGUP,_______,_______,_______,_______,_______,_______, _______,_______, _______, \
     KC_END,KC_LEFT,KC_DOWN,KC_RIGHT,KC_PGDN,_______,_______,_______,_______,_______,_______,_______, _______, _______, \
     _______,_______,_______,_______,KC_CEDL,_______,_______,KC_ENYE,KC_MUTE,_______,_______,_______,_______, _______, \
-    _______,_______,_______,                 KC_MPLY,                       _______,_______,_______, _______),
+    _______,_______,_______,                 _______,                       _______,_______,_______, _______),
 
     /* Keymap _FL: (Function Layer) Second Layer
      * ,-----------------------------------------------------------.
@@ -99,7 +99,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,_______,KC_VOLU,_______,_______,_______,RGB_TOG,RGB_MOD,RGB_M_B,RGB_VAI,RGB_VAD, RGB_HUI,RGB_HUD, _______, \
     KC_CAPS,KC_MPRV,KC_VOLD,KC_MNXT,_______,_______,_______,_______,_______,_______,_______,_______, _______, _______, \
     _______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______, _______, \
-    _______,_______,_______,                 _______,                       _______,_______,_______, _______)
+    _______,_______,_______,                 KC_MPLY,                       _______,_______,_______, _______)
 
 };
 
